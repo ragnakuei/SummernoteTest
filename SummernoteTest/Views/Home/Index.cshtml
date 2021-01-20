@@ -1,8 +1,11 @@
-﻿@{
+﻿@model ViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form method="post">
+	<div style="margin:auto; width:980px;">
+		<textarea asp-for="HtmlEditorContent" rows="20"></textarea>
+	</div>
+	<input type="submit" value="送出">
+</form>
