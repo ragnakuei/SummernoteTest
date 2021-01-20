@@ -14,20 +14,14 @@ namespace SummernoteTest.Controllers
             _fileService = fileService;
         }
 
-        [HttpGet]
-        public IActionResult ImageForTinyMce()
-        {
-            return View();
-        }
-
         [HttpPost]
-        public async Task<IActionResult> ImageForTinyMce(IFormFile uploadFile)
+        public async Task<IActionResult> Image(IFormFile uploadFile)
         {
             var newFileName = await _fileService.SaveImageAsync(uploadFile);
 
             var imageUrl = Url.Action("Image", "File", new { fileName = newFileName });
 
-            return PartialView("ImageHtml", imageUrl);
+            return Ok(imageUrl);
         }
     }
 }
